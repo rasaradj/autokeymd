@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изготовление автоключей | Визитка</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --accent-color: #f39c12; /* Автомобильный желтый/оранжевый */
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #000000 0%, var(--bg-color) 100%);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #d68910;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--text-muted);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background-color: transparent;
+        }
+        section {
+            margin: 60px 0;
+            padding: 30px;
+            background-color: var(--surface-color);
+            border-radius: 12px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .center-heading {
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background-color: #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-top: 20px;
+            border: 1px solid #444;
+        }
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-links a {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background-color: #2a2a2a;
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+        }
+        .contact-links a:hover {
+            background-color: #3a3a3a;
+        }
+        .whatsapp { border-left: 5px solid #25D366; }
+        .telegram { border-left: 5px solid #0088cc; }
+        .phone { border-left: 5px solid var(--accent-color); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>KeyMaster Auto</h1>
+        <p class="subtitle">Профессиональное изготовление и программирование автоключей</p>
+        <a href="#contacts" class="btn">Связаться со мной</a>
+        <a href="#portfolio" class="btn btn-outline">Мои работы</a>
+    </header>
+
+    <div class="container">
+        
+        <section id="portfolio">
+            <div class="center-heading">
+                <h2>Примеры работ</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=500&q=80" alt="Ключ 1">
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500&q=80" alt="Ключ 2">
+                <img src="https://images.unsplash.com/photo-1551522435-a13afa10f103?w=500&q=80" alt="Ключ 3">
+            </div>
+        </section>
+
+        <section id="location">
+            <div class="center-heading">
+                <h2>Как меня найти</h2>
+            </div>
+            <p style="text-align: center;">г. Ваш Город, ул. Примерная, д. 10 (ТЦ "Автомир", 1 этаж)</p>
+            <div class="map-container">
+                <p>Место для интерактивной карты Google Maps / Yandex</p>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <div class="center-heading">
+                <h2>Контакты</h2>
+            </div>
+            <p style="text-align: center;">Отвечаю быстро. Присылайте фото вашего ключа для оценки стоимости.</p>
+            <div class="contact-links">
+                <a href="tel:+1234567890" class="phone">📞 Позвонить: +1 (234) 567-890</a>
+                <a href="https://wa.me/1234567890" class="whatsapp">💬 Написать в WhatsApp</a>
+                <a href="https://t.me/yourusername" class="telegram">✈️ Написать в Telegram</a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

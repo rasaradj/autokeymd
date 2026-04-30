@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoKeyMD — Изготовление автоключей Кишинев</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b1116;
+            --text-color: #ffffff;
+            --gold: #d4af37;
+            --blue: #00a2ff;
+            --card-bg: #15202b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 162, 255, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .logo { font-size: 24px; font-weight: 700; color: var(--text-color); text-decoration: none; }
+
+        .lang-switcher {
+            display: flex;
+            gap: 15px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #a0aab2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .lang-btn.active {
+            border-color: var(--blue);
+            color: var(--text-color);
+            background: rgba(0, 162, 255, 0.1);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0 100px;
+        }
+
+        .hero-content { max-width: 600px; }
+        .hero h1 { font-size: 42px; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { color: #a0aab2; margin-bottom: 40px; font-size: 16px; }
+
+        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-gold { border: 2px solid var(--gold); color: var(--gold); }
+        .btn-gold:hover { background: var(--gold); color: #000; }
+
+        .btn-blue { border: 2px solid var(--blue); color: var(--text-color); }
+        .btn-blue:hover { background: var(--blue); }
+
+        .hero-image {
+            width: 450px;
+            height: 450px;
+            /* Ссылка сохранена из вашего оригинального кода */
+            background: url('Main.jpg') no-repeat center/cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .section-title { text-align: center; font-size: 24px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .gallery { padding: 80px 0; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .location { padding: 80px 0; }
+        .map-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid rgba(0, 162, 255, 0.2);
+        }
+
+        .map-card {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0e1721;
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .contact { padding: 80px 0 40px; text-align: center; }
+        .contact-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; }
+        .contact-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; }
+
+        .icon-circle {
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 28px; margin-bottom: 15px;
+            border: 1px solid; transition: 0.3s;
+        }
+
+        .icon-tg { border-color: #0088cc; color: #0088cc; }
+        .icon-wa { border-color: #25D366; color: #25D366; }
+        .icon-ph { border-color: var(--blue); color: var(--blue); }
+        .icon-circle:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+
+        .footer-bottom { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); color: #55606b; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-image { width: 100%; height: 300px; margin-top: 30px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .hero-buttons { justify-content: center; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="#" class="logo">AutoKeyMD</a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+                <button class="lang-btn" onclick="setLang('ro')">RO</button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <!-- HTML тег <br> здесь не обязателен, так как JS перезаписывает содержимое при загрузке -->
+                <h1 id="hero-title">Изготовление Автомобильных Ключей</h1>
+                <p id="hero-desc">Нарезка, Программирование, Вскрытие. Гарантия качества на все виды услуг.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+37367104558" class="btn btn-gold" id="btn-call">ПОЗВОНИТЬ</a>
+                    <a href="#contacts" class="btn btn-blue" id="btn-write">
+                        НАПИСАТЬ 
+                        <!-- Иконки перезаписываются в JS, но HTML нужен для начального отображения -->
+                        <i class="fab fa-whatsapp" style="color: #25D366;"></i> 
+                        <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image"></div>
+        </section>
+
+        <section class="gallery">
+            <h2 class="section-title" id="gallery-title">Примеры работ</h2>
+            <div class="gallery-grid">
+                <!-- Замените "Key X.jpg" на ваши реальные фото -->
+                <div class="gallery-item"><img src="Key 1.jpg" alt="Key 1"></div>
+                <div class="gallery-item"><img src="Key 2.jpg" alt="Key 2"></div>
+                <div class="gallery-item"><img src="Key 3.jpg" alt="Key 3"></div>
+                <div class="gallery-item"><img src="Key 4.jpg" alt="Key 4"></div>
+                <div class="gallery-item"><img src="Key 5.jpg" alt="Key 5"></div>
+                <div class="gallery-item"><img src="Key 6.jpg" alt="Programare"></div>
+            </div>
+        </section>
+
+        <section class="location">
+            <h2 class="section-title" id="location-title">Как нас найти</h2>
+            <div class="map-wrapper">
+                <!-- Реальная карта Google Maps (центр Кишинев) -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.868073569509!2d28.768669999999993!3d47.04281950000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cbd7c43d83f347%3A0xd158641c86f8fcaf!2zQXV0byBLZXkg4oCUIENoZWkgYXV0by4g0JjQt9Cz0L7RgtC-0LLQu9C10L3QuNC1INCw0LLRgtC-0LrQu9GO0YfQtdC5ICjQktGL0LXQt9C0KQ!5e0!3m2!1sru!2s!4v1777562689470!5m2!1sru!2s" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+                <div class="map-card">
+                    <h3>AutoKeyMD</h3>
+                    <p id="address">г. Кишинёв, ул. Ливию Делеану 3/3</p>
+                    <a href="https://maps.app.goo.gl/U32gR4dXXAdbrkEs6" target="_blank" class="btn btn-blue" id="btn-map">ОТКРЫТЬ В КАРТАХ</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="contact" id="contacts">
+            <h2 class="section-title" id="contact-title">Связаться с нами</h2>
+            <div class="contact-links">
+                <a href="https://t.me/+37367104558" target="_blank" class="contact-item">
+                    <div class="icon-circle icon-tg"><i class="fab fa-telegram-plane"></i></div>
+                    <p>Telegram<br><span>+373 67 104 558</span></p>
+                </a>
+                <a href="https://wa.me/37367104558" target="_blank" class="contact-item">
+                    <div class="icon-circle icon-wa"><i class="fab fa-whatsapp"></i></div>
+                    <p>WhatsApp<br><span>+373 67 104 558</span></p>
+                </a>
+                <a href="tel:+37367104558" class="contact-item">
+                    <div class="icon-circle icon-ph"><i class="fas fa-phone-alt"></i></div>
+                    <p id="phone-label">Телефон<br><span>+373 67 104 558</span></p>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 AutoKeyMD. <span id="rights">Все права защищены.</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            ru: {
+                // Добавлен тег <br> для переноса строки
+                heroTitle: "Изготовление<br>Автомобильных Ключей",
+                heroDesc: "Нарезка, Программирование, Вскрытие. Гарантия качества.",
+                btnCall: "ПОЗВОНИТЬ",
+                btnWrite: "НАПИСАТЬ",
+                galleryTitle: "Примеры работ",
+                locationTitle: "Как нас найти",
+                address: "г. Кишинёв, ул. Ливию Делеану 3/3",
+                btnMap: "ОТКРЫТЬ В КАРТАХ",
+                contactTitle: "Связаться с нами",
+                phoneLabel: "Телефон",
+                rights: "Все права защищены."
+            },
+            ro: {
+                // Добавлен тег <br> для переноса строки
+                heroTitle: "Confecționarea<br>Cheilor Auto",
+                heroDesc: "Tăiere, Programare, Deblocare. Garantăm calitatea.",
+                btnCall: "APELEAZĂ",
+                btnWrite: "SCRIE-NE",
+                galleryTitle: "Exemple de lucrări",
+                locationTitle: "Cum ne găsești",
+                address: "or. Chișinău, str. Liviu Deleanu 3/3",
+                btnMap: "DESCHIDE ÎN HĂRȚI",
+                contactTitle: "Contactează-ne",
+                phoneLabel: "Telefon",
+                rights: "Toate drepturile rezervate."
+            }
+        };
+
+        function setLang(lang) {
+            // Текстовые элементы (используем .innerHTML для обработки <br>)
+            document.getElementById('hero-title').innerHTML = translations[lang].heroTitle;
+            document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
+            document.getElementById('btn-call').innerText = translations[lang].btnCall;
+            
+            // Кнопка "Написать" с цветными иконками (в JS)
+            document.getElementById('btn-write').innerHTML = translations[lang].btnWrite + ' <i class="fab fa-whatsapp" style="color: #25D366; margin-left: 0px;"></i> <i class="fab fa-telegram" style="color: #0088cc;"></i>';
+            
+            document.getElementById('gallery-title').innerText = translations[lang].galleryTitle;
+            document.getElementById('location-title').innerText = translations[lang].locationTitle;
+            document.getElementById('address').innerText = translations[lang].address;
+            document.getElementById('btn-map').innerText = translations[lang].btnMap;
+            document.getElementById('contact-title').innerText = translations[lang].contactTitle;
+            document.getElementById('phone-label').innerHTML = translations[lang].phoneLabel + '<br><span>+373 67 104 558</span>';
+            document.getElementById('rights').innerText = translations[lang].rights;
+
+            // Обновление активной кнопки переключателя
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            // Находим кнопку, которая была нажата
+            if (event && event.target && event.target.tagName === 'BUTTON') {
+                 event.target.classList.add('active');
+            } else {
+                // При начальной загрузке подсвечиваем нужную кнопку
+                const btns = document.querySelectorAll('.lang-btn');
+                if (lang === 'ru') btns[0].classList.add('active');
+                if (lang === 'ro') btns[1].classList.add('active');
+            }
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Проверка сохраненного языка при загрузке
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'ru';
+            setLang(savedLang);
+        };
+    </script>
+</body>
+</html>
